@@ -1,0 +1,9 @@
+version: '3' #obrigatório
+services: #containers?
+  redis-server:
+    image: 'redis' #dockerhub image
+  node-app:
+    restart: always #container node-app reinicia sempre q cai;"no";always;on-failure;unless-stopped;  no tem aspas mesmo. sem aspas é false
+    build: . #build local folder Dockerfile
+    ports:
+      - "4001:8081" #- representa array
