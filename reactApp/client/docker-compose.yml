@@ -1,0 +1,20 @@
+version: '3' #obrigatório
+services: #containers?
+  web:
+    restart: always #container node-app reinicia sempre q cai;"no";always;on-failure;unless-stopped;  no tem aspas mesmo. sem aspas é false
+    build:
+      context: . #pasta
+      dockerfile: Dockerfile.dev # custom dockerfile
+    ports:
+      - "3000:3000" #- representa array
+    volumes:
+      - /app/node_modules #mapeamento de não copie esse.
+      - .:/app #mapeia pasta . de fora para /app de dentro do container.
+  tests:
+    build:
+      context: . #pasta
+      dockerfile: Dockerfile.dev # custom dockerfile
+    volumes:
+      - /app/node_modules #mapeamento de não copie esse.
+      - .:/app #mapeia pasta . de fora para /app de dentro do container.
+    command: ["npm", "run", "test"]

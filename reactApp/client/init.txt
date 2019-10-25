@@ -1,0 +1,6 @@
+npm install -g create-react-app
+create-react-app client
+
+npm run start - start dev server
+npm run test - run tests associated with project
+npm run build - build production of the server
